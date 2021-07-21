@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: pihole-config
+    namespace: pihole
+data:
+    WEBPASSWORD: pihole
+    TZ: 'America/Edmonton'
+    PIHOLE_DNS_: '1.1.1.1;8.8.8.8'

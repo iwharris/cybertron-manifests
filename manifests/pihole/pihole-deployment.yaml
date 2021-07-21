@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: pihole
+    name: pihole
+    namespace: pihole
+spec:
+    selector:
+        matchLabels:
+            app: pihole
+    template:
+        metadata:
+            labels:
+                app: pihole
+        spec:
+            containers:
+                - image: pihole/pihole:v5.8.1
+                  imagePullPolicy: IfNotPresent
+                  name: pihole
+                  env:
+                      - name: WEBPASSWORD
+                        valueFrom:
+                            secretKeyRef:
+                                name: pihole-secret
+                                key: WEBPASSWORD
+                      - name: TZ
+                        valueFrom:
+                            configMapKeyRef:
+                                name: pihole-config
+                                key: TZ
+                      - name: PIHOLE_DNS_
+                        valueFrom:
+                            configMapKeyRef:
+                                name: pihole-config
+                                key: PIHOLE_DNS_
+                  volumeMounts:
+                      - name: pihole-pvc
+                        mountPath: "/etc/pihole"
+                      - name: dnsmasq-pvc
+                        mountPath: "/etc/dnsmasq.d"
+            hostAliases:
+                - ip: 192.168.100.11
+                  hostnames:
+                    - k8s1
+                    - pi1
+                - ip: 192.168.100.12
+                  hostnames:
+                    - k8s2
+                    - pi2
+            restartPolicy: Always
+            volumes:
+                - name: pihole-pvc
+                  persistentVolumeClaim:
+                      claimName: pihole-pvc
+                - name: dnsmasq-pvc
+                  persistentVolumeClaim:
+                      claimName: dnsmasq-pvc
