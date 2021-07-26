@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    # add an annotation indicating the issuer to use.
+    cert-manager.io/cluster-issuer: letsencrypt-ianharrisio-cloudflare-issuer
+    kubernetes.io/tls-acme: "true"
+  name: pihole-ingress
+  namespace: pihole
+spec:
+  rules:
+  - host: pihole.ianharris.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: pihole-tcp
+            port:
+              name: port80
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+  - hosts:
+    - pihole.ianharris.io
+    secretName: pihole-tls-cert # < cert-manager will store the created certificate in this secret.
