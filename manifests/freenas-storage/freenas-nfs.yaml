@@ -47,14 +47,14 @@ driver:
     instance_id:
     httpConnection:
       protocol: https
-      host: 192.168.100.100
+      host: allspark.ianharris.io
       port: 443
       apiKey: <redacted>
       username: root
       allowInsecure: false
       apiVersion: 2
     sshConnection:
-      host: 192.168.100.100
+      host: allspark.ianharris.io
       port: 22
       username: k8s-op
       # use either password or key
@@ -96,7 +96,7 @@ driver:
       #- "-m u:kube:full_set:allow"
 
     nfs:
-      shareHost: 192.168.100.100
+      shareHost: allspark.ianharris.io
       shareAlldirs: false
       shareAllowedHosts: []
       shareAllowedNetworks: []
