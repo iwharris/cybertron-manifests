@@ -1,0 +1,22 @@
+# See cloud-init documentation for available options:
+# https://cloudinit.readthedocs.io/
+
+ssh_pwauth: false
+
+groups:
+  - ubuntu: [root, sys]
+
+users:
+  - default
+  - name: k8s
+    gecos: k8s
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    ssh_import_id: None
+    lock_passwd: true
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaXAyzsi+rGyl8VMtBt914KAubrS++n5aZbHlixMhFIhyvChj2Yc0ayN05tAyVt7BiqNdPoa8JmX683S2lWAXSgZxLMKsC2NhCW8vHqGqYhJjXIYkQ4cpVsJd1h6yLT+Zaa/4HvGf2TMnBmOpcbk3JngjSKpS9okDGjcABKzpDN5aBMP41eU8mbiTj69C0PVhyQxfBCHA6ME/eI6D4d5Je6H/YQGKixOpEWk8KAEN7rWnwooGlFAsDX0udP1f1S4K8zMw8nvIocTo+nMWvxnU3NUIZD3VN80FJk61XMtIODGiDDPhOHYRBIghC8bTT41I5/3Hn6qUyp4/LXnQXEQQn iwharris@iwharris-mba.local
+
+# CHANGE THIS
+hostname: k8s1
