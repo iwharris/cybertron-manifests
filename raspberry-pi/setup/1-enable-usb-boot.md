@@ -25,3 +25,6 @@ sudo -E rpi-eeprom-config --edit
 Change the `BOOT_ORDER` to `0xf41`, which will attempt to boot from USB first, falling back to SD
 
 ## Use the Raspberry Pi Imager to install an OS
+
+Don't use Ubuntu 20.04.3 LTS as it can't boot from USB.
+Use 20.10 or newer.
