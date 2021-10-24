@@ -9,14 +9,13 @@ groups:
 users:
   - default
   - name: k8s
-    gecos: k8s
     sudo: ALL=(ALL) NOPASSWD:ALL
     groups: sudo
     ssh_import_id: None
     lock_passwd: true
     shell: /bin/bash
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaXAyzsi+rGyl8VMtBt914KAubrS++n5aZbHlixMhFIhyvChj2Yc0ayN05tAyVt7BiqNdPoa8JmX683S2lWAXSgZxLMKsC2NhCW8vHqGqYhJjXIYkQ4cpVsJd1h6yLT+Zaa/4HvGf2TMnBmOpcbk3JngjSKpS9okDGjcABKzpDN5aBMP41eU8mbiTj69C0PVhyQxfBCHA6ME/eI6D4d5Je6H/YQGKixOpEWk8KAEN7rWnwooGlFAsDX0udP1f1S4K8zMw8nvIocTo+nMWvxnU3NUIZD3VN80FJk61XMtIODGiDDPhOHYRBIghC8bTT41I5/3Hn6qUyp4/LXnQXEQQn iwharris@iwharris-mba.local
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCqKNppi8itGdEQgfM6nX3yMoVfNrU1JzQFORnGLTr1YcF8zJppcZ/+73+QsDwc/uw+9arQ3iG1mhiu7q93wjVbtIaqIG7z64X3/tiLlmhAiaAfNata9A9oPift0dSuhzFl1T3B6CzOrL3hV7AnKDcLchPkeM5M5V+A4OpFpVzeN5DOqiFoGw00Tnsak1XEZicPCW4WW2pLJZSioh50hTOHG+dCfDwzR9unJksCUX9V1d2v+6qYDAYR6BNrD0dUDvbW/DchYjYVTwyfvgdkip8d1pJlBr9ELcWuKHH6LDEyIdfEwW6jBlTWIN2rG0rgMBn3CqS6SShv+puI+t3KIumNAIBRsRcWwxdQru1JM2oYTh5VliA3tzY74m+VRNw3OROMe94YCWgLW5XWd5MHNpXPahEUuHc5CnGoGa9JpdKteO6kpv05M7kJR8RfQtW3rlYJAeJ8X2SqFDamxR9JW4ccXwRpG+wS3ujswxE4KmNiG3s7T+4eP7DJtK/BQzCjxyGayHl6el+RrIupCMpg/d19srx+SY2t5kfJxJ6D3K9ozlxnjBA/+gWhWgXFQbLEmKTOU+4i2baL0EmTlyfXQ4ckkbqkOurw5HZzCG482lhZEweoZutpJXb0gBUfvSQ34JPqVcnn0dK52HQkmjc1Oc3ouo6zkAgsbDwAJNJ3EpR61Q== k8s@cybertron
 
 # CHANGE THIS
 hostname: k8s1
