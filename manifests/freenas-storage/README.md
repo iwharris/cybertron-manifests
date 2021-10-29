@@ -15,3 +15,10 @@ Can use SSH key authentication instead of password
 NFS shares are not necessary - just enable the nfs service in TrueNAS
 
 Use `microk8s helm3` for the helm commands
+
+If getting sudo errors on the provisioner, ssh to freenas and use the CLI to update the user
+
+```bash
+query select=id,username,sudo,sudo_nopasswd
+update id=38 sudo=true sudo_nopasswd=true
+```

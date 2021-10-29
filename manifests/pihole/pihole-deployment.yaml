@@ -15,7 +15,7 @@ spec:
                 app: pihole
         spec:
             containers:
-                - image: pihole/pihole:v5.8.1
+                - image: pihole/pihole:latest
                   imagePullPolicy: IfNotPresent
                   name: pihole
                   env:
@@ -52,6 +52,10 @@ spec:
                   hostnames:
                     - k8s3
                     - pi3
+                - ip: 192.168.100.100
+                  hostnames:
+                    - allspark.ianharris.io
+                    - allspark
             restartPolicy: Always
             volumes:
                 - name: pihole-pvc
