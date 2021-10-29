@@ -40,5 +40,5 @@ PrintMotd yes
 ```
 
 ```bash
-sudo service restart ssh
+sudo service ssh restart
 ```
